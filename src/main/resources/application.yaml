@@ -1,0 +1,15 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          pingone:
+            client-id: my-client-id
+            client-secret: my-client-secret
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/pingone
+            scope: openid,profile,email
+        provider:
+          pingone:
+            issuer-uri: my-issuer-uri
+            user-name-attribute: sub

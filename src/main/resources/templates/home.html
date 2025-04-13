@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>Welcome <span th:text="${userName}"></span></h1>
+
+<h2>User Attributes:</h2>
+<!--<pre th:text="${#maps.toString(attributes)}"></pre>-->
+
+<div th:each="entry : ${attributes}">
+    <p th:text="${entry.key} + ': ' + ${entry.value}"></p>
+</div>
+
+<h2>Access Token:</h2>
+<div th:text="${accessToken}"></div>
+
+<h2>Token Expires At:</h2>
+<div th:text="${expiresAt}"></div>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>
